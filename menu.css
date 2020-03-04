@@ -1,0 +1,111 @@
+/* menu */
+#menu {
+	/* variable */
+	--animation-duration:0.3s;
+	--icon-size:3em;
+	--label-size:1.8em;
+	--menu-title-color:white;
+	
+	/* dark theme */
+	--inactive-background-color:#23232F;
+	--inactive-text-color:#5A595E;
+	--active-background-color:#151419;
+	--active-text-color:#D64CA1;
+	
+	/* light theme */
+	/*
+	--inactive-background-color:lightblue;
+	--inactive-text-color:white;
+	--active-background-color:turquoise;
+	--active-text-color:#FFFFAA;
+	*/
+	
+	background-color: var(--inactive-background-color) ;
+	color: var(--inactive-text-color) ;
+	text-align:left;
+	position: absolute;
+}
+
+#menu a {
+	text-decoration: none;
+	color: var(--inactive-text-color) ;
+}
+
+#menu ul {
+	margin:0px;
+	padding:0px;
+}
+
+#menu:hover {
+	width:calc( var(--label-size)*13 );
+}
+
+#menu li {
+	margin:0px;
+	padding:0px;
+	margin-bottom:0px;
+	padding: calc(var(--icon-size) - 1.8em);
+}
+
+#menu li:hover {
+	background-color: var(--active-background-color) ;
+	color: var(--active-text-color) ;
+}
+
+#menu li:hover a {
+	color: var(--active-text-color) ;
+}
+
+#menu li i {
+	width: calc( var(--icon-size) - 2.5em );
+	font-size:var(--icon-size);
+}
+
+#menu li .label {
+	opacity:0;
+	font-size: 0em;
+	position:relative;
+	left: 0em;
+  transition-duration: var(--animation-duration);
+	transition-property: left,opacity;
+}
+
+#menu:hover li .label {
+	opacity:1;
+	height:auto;
+	width:auto;
+	font-size: var(--label-size);
+	left: calc( var(--icon-size) - 1.5em );
+	transition-duration: var(--animation-duration);
+	transition-property: left,opacity;
+}
+
+
+
+
+/* premier icon */
+#menu li:first-child .label {
+	display:none;
+}
+
+#menu:hover li:first-child .label {
+	display:inline;
+}
+
+#menu li:first-child {
+	background-color: var(--active-background-color);
+	color: var(--menu-title-color);
+	font-weight: bold;
+}
+
+#menu li:first-child i {
+	width: calc( var(--icon-size) - 2em );
+	transition: all var(--animation-duration);
+}
+
+#menu:hover li:first-child i {
+	margin-left: calc( var(--label-size)*2 );
+	transform: rotate(450deg);
+	transform-origin: center center;
+	transition: all var(--animation-duration);
+}
